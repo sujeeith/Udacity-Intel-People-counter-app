@@ -176,11 +176,6 @@ def infer_on_stream(args, client):
             #frame = frame.copy(order='C')    
             frame = cv2.putText(frame, "People in frame = "+str(person_count), (15, 15), cv2.FONT_HERSHEY_COMPLEX_SMALL,  0.8, (0, 255, 0), 1, cv2.LINE_AA)
             
-            
-        ## Break if escape key is pressed
-        if key_pressed == 27:
-            break
-
             ### TODO: Get the results of the inference request ###
 
             ### TODO: Extract any desired stats from the results ###
@@ -200,9 +195,12 @@ def infer_on_stream(args, client):
             last_count = person_count
 
         ### TODO: Send the frame to the FFMPEG server ###
+        frame = cv2.UMat.get(frame)
         sys.stdout.buffer.write(frame)
         sys.stdout.flush()
-        
+        ## Break if escape key is pressed
+        if key_pressed == 27:
+            break
         
         ### TODO: Write an output image if `single_image_mode` ###
         if single_image_mode:
