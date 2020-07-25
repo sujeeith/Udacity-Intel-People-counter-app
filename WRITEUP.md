@@ -20,7 +20,7 @@ For TensorFlow, its second option is to actually replace the unsupported subgrap
 
 There are a lot of pre-trained models available in frameworks like Tensorflow, Caffe, PyTorch, MXNet etc. I chose the Tensorflow's 'SSD MobileNet V2 COCO' model to do this project.
 The steps to execute the project are documented in the following file.
-
+https://github.com/sujeeith/Udacity-Intel-People-counter-app/blob/master/People_counter_app_execution_steps.docxs
 
 
 ## Comparing Model Performance
