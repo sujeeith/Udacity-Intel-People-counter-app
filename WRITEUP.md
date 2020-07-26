@@ -18,6 +18,7 @@ For Caffe, the second option is to register the layers as Custom, then use Caffe
 
 For TensorFlow, its second option is to actually replace the unsupported subgraph with a different subgraph. The final TensorFlow option is to actually offload the computation of the subgraph back to TensorFlow during inference.
 
+<<<<<<< HEAD
 Custom layers need to be handled in the program because, if a model consists of any custom layers, we need to add extensions to the model optimizer as well as the inference engine while performing inference with our model.
 
 There are a lot of pre-trained models available in frameworks like Tensorflow, Caffe, PyTorch, MXNet etc. I have used the Intel OpenVINO pre-trained model 'person-detection-retail-0013' model to do this project as the models which I tried were unable to handle false positive cases i.e., when a subject is idle continuously the models failed to detect the presence of a subject.
@@ -40,6 +41,11 @@ cd /home/workspace
 Finally, use the below command to see the people counter app in action.
 python main.py -i resources/Pedestrian_Detect_2_1_1.mp4 -m intel/person-detection-retail-0013/FP32/person-detection-retail-0013.xml -l /opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so -d CPU -pt 0.6 | ffmpeg -v warning -f rawvideo -pixel_format bgr24 -video_size 768x432 -framerate 24 -i - http://0.0.0.0:3004/fac.ffm
 
+=======
+There are a lot of pre-trained models available in frameworks like Tensorflow, Caffe, PyTorch, MXNet etc. I chose the Tensorflow's 'SSD MobileNet V2 COCO' model to do this project.
+The steps to execute the project are documented in the following file.
+https://github.com/sujeeith/Udacity-Intel-People-counter-app/blob/master/People_counter_app_execution_steps.docxs
+>>>>>>> efb151f29ea3fe76a0f8c1398c7af67d2de81da9
 
 
 ## Comparing Model Performance
@@ -108,4 +114,9 @@ In investigating potential people counter models, I tried each of the following 
   - I tried to improve the model for the app by checking the detected person to be in the center of the frame and by decreasing the probility threshold
 
 ## References
+<<<<<<< HEAD
 Custom Layers, https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Customize_Model_Optimizer.html
+=======
+1) Custom Layers, https://docs.openvinotoolkit.org/2019_R3/_docs_MO_DG_prepare_model_customize_model_optimizer_Customize_Model_Optimizer.html
+2) MobileNet V2, https://arxiv.org/pdf/1801.04381.pdf   
+>>>>>>> efb151f29ea3fe76a0f8c1398c7af67d2de81da9
